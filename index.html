@@ -1,11 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio — ISIL2IAGE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+        }
+
+        /* ── HEADER ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 15, 26, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        /* Logo / nom */
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        /* Menu */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #a0a0b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.25s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #fff;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Bouton CTA */
+        .btn-contact {
+            background: #6366f1;
+            color: #fff !important;
+            padding: 0.45rem 1.1rem;
+            border-radius: 6px;
+            transition: background 0.2s !important;
+        }
+
+        .btn-contact::after {
+            display: none !important;
+        }
+
+        .btn-contact:hover {
+            background: #4f46e5 !important;
+        }
+
+        /* Hamburger (mobile) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        @media (max-width: 680px) {
+            .menu-toggle { display: flex; }
+
+            nav {
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 26, 0.97);
+                border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            nav.open { max-height: 400px; }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 2rem 1.5rem;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 0.6rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">ISI<span>L2IAGE</span></a>
+
+            <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="this.closest('header').querySelector('nav').classList.toggle('open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#ia">L'IA</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#equipe">Équipe</a></li>
+                    <li><a href="#contact" class="btn-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <p>Salut et bienvenue à ISI</p>
+    <section class="">
+        <div>
+            <p>
+                💡
+C'EST QUOI L'INTELLIGENCE ARTIFICIELLE ?
+Imagine un enfant qui apprend. On lui montre des centaines de photos de chats et de chiens, on lui dit "ça c'est un chat, ça c'est un chien". Après un moment, il reconnaît tout seul. L'IA, c'est exactement ça — une machine qui apprend à partir d'exemples.
+Formellement : l'IA est un ensemble de techniques permettant à une machine d'imiter des comportements intelligents : reconnaître, comprendre, décider, créer.
+            </p>
+        </div>
+    </section>
 </body>
 </html>
